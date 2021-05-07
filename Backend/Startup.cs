@@ -47,7 +47,7 @@ namespace Northwind
             "                                                  timeout=300"));
             #endregion
 
-            #region Dependency Injection - Models
+            #region Dependency Injection - Entity Repositories
             services.AddScoped<IRepository<Category>, EntityRepository<Category>>();
             services.AddScoped<IRepository<Customer>, EntityRepository<Customer>>();
             services.AddScoped<IRepository<CustomerCustomerDemo>, EntityRepository<CustomerCustomerDemo>>();
