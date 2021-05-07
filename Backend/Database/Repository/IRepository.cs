@@ -8,12 +8,6 @@ namespace Northwind.Database.Repository
     public interface IRepository<T> 
         where T : class
     {
-        void Salvar(T entity);
-
-        void Update(T entity);
-
-        void Apagar(T entity);
-
         public List<T> Listar(Expression<Func<T, bool>> filter = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             string includeProperties = "");

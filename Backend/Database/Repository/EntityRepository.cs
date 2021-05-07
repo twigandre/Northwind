@@ -20,30 +20,6 @@ namespace Northwind.Database.Repository
 
         public IQueryable<T> Query => Set;
 
-        public void Salvar(T entity)
-        {
-            var entry = Context.Entry(entity);
-            if (entry.State == EntityState.Detached)
-                Set.Add(entity);
-        }
-
-        public void Update(T entity)
-        {
-            var entry = Context.Entry(entity);
-            if (entry.State == EntityState.Detached)
-                Set.Attach(entity);
-            entry.State = EntityState.Modified;
-
-        }
-
-        public void Apagar(T entity)
-        {
-            var entry = Context.Entry(entity);
-            if (entry.State == EntityState.Detached)
-                Set.Attach(entity);
-            Set.Remove(entity);
-        }
-
         public T Selecionar(Expression<Func<T, bool>> predicate)
         {
             return Context
