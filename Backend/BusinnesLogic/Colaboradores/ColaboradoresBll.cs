@@ -19,31 +19,23 @@ namespace Northwind.BusinnesLogic.Colaboradores
             _repositoryFuncionario = repositoryFuncionario;
         }
 
-        public List<string> Listar(Order pagedFilter)
+        public List<FuncionariosDto> Listar(Order pagedFilter)
         {
+            var retornoMetodo = new List<FuncionariosDto>();
             try
             {
-                var retornoMetodo = new List<string>();
 				var dataPedido = pagedFilter.OrderDate == null ? new DateTime(1, 1, 1) : new DateTime(pagedFilter.OrderDate.Value.Year, pagedFilter.OrderDate.Value.Month, pagedFilter.OrderDate.Value.Day);
 				var dataExpedicao = pagedFilter.ShippedDate == null ? new DateTime(1, 1, 1) : new DateTime(pagedFilter.ShippedDate.Value.Year, pagedFilter.ShippedDate.Value.Month, pagedFilter.ShippedDate.Value.Day, 23, 59, 59);
 
-				var EmployeList = _repositoryPedidos.Listar(o =>				
-					(
-						pagedFilter.OrderDate == null || (o.OrderDate >= dataPedido && o.ShippedDate <= dataExpedicao)
-					)					
-			    );
+                var FuncionariosDto = _repositoryFuncionario.Listar().Select(x => new FuncionariosDto() { 
+                        EmployerId = (int)x.EmployeeId,
+                        Nome = x.FirstName + "" + x.LastName,
+                        QtdPedidosAtendidos = _repositoryPedidos.Listar(o => (o.EmployeeId == x.EmployeeId) &&
+                                                                             (pagedFilter.OrderDate == null || (o.OrderDate >= dataPedido && o.ShippedDate <= dataExpedicao) )
+                                                                       ).Count()
+                }).ToList();
 
-                if (EmployeList.Count == 0)
-                    return null;
-
-                foreach(var item in EmployeList)
-                {
-                    var Funcionario = _repositoryFuncionario.Selecionar(o => o.EmployeeId == item.EmployeeId);
-                    var NomeConcatenado = Funcionario.FirstName + " " + Funcionario.LastName;
-                    retornoMetodo.Add(NomeConcatenado);
-                }
-
-                return retornoMetodo;
+                return FuncionariosDto;
             }
 			catch (Exception e)
             {

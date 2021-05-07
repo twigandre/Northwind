@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Northwind.Database.Models;
 using Northwind.BusinnesLogic.Colaboradores;
+using Northwind.Database.Dto;
 
 namespace Northwind.Controllers
 {
@@ -21,7 +22,7 @@ namespace Northwind.Controllers
         /// </summary>
         [HttpGet]
         [Route("[action]")]
-        public List<string> ListaColaboradoresPorDataPedidos([FromQuery] Order pagedFilter) => _colaboradoresBll.Listar(pagedFilter);
+        public List<FuncionariosDto> ListaColaboradoresPorDataPedidos([FromQuery] Order pagedFilter) => _colaboradoresBll.Listar(pagedFilter);
 
       
     }
