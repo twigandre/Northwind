@@ -40,11 +40,11 @@ namespace Northwind
             services.AddEntityFrameworkNpgsql()
             .AddDbContext<NorthwindContext>(options =>
                                             options.UseNpgsql("Host=" + Environment.GetEnvironmentVariable("HOST_DATABASE") + ";" +
-            "                                                  Port=" + Environment.GetEnvironmentVariable("DATABASE_PORT") + ";" +
-            "                                                  Database=" + Environment.GetEnvironmentVariable("DATABASE_NAME") + ";" +
-            "                                                  Username=" + Environment.GetEnvironmentVariable("DATABASE_USER") + ";" +
-            "                                                  Password=" + Environment.GetEnvironmentVariable("DATABSE_PSW") + ";" +
-            "                                                  timeout=300"));
+                                                            "  Port=" + Environment.GetEnvironmentVariable("DATABASE_PORT") + ";" +
+                                                            "  Database=" + Environment.GetEnvironmentVariable("DATABASE_NAME") + ";" +
+                                                            "  Username=" + Environment.GetEnvironmentVariable("DATABASE_USER") + ";" +
+                                                            "  Password=" + Environment.GetEnvironmentVariable("DATABSE_PSW") + ";" +
+                                                            "  timeout=300"));
             #endregion
 
             #region Dependency Injection - Entity Repositories

@@ -29,7 +29,7 @@ namespace Northwind.BusinnesLogic.Colaboradores
 
                 var FuncionariosDto = _repositoryFuncionario.Listar().Select(x => new FuncionariosDto() { 
                         EmployerId = (int)x.EmployeeId,
-                        Nome = x.FirstName + "" + x.LastName,
+                        Nome = x.FirstName + " " + x.LastName,
                         QtdPedidosAtendidos = _repositoryPedidos.Listar(o => (o.EmployeeId == x.EmployeeId) &&
                                                                              (pagedFilter.OrderDate == null || (o.OrderDate >= dataPedido && o.ShippedDate <= dataExpedicao) )
                                                                        ).Count()
