@@ -10,8 +10,8 @@ namespace Northwind.Controllers
     [ApiController]
     public class ProdutosController : ControllerBase
     {
-        IProdutoBll _produtoBll;
-        public ProdutosController(IProdutoBll produtoBll)
+        IProduto _produtoBll;
+        public ProdutosController(IProduto produtoBll)
         {
             _produtoBll = produtoBll;
         }
@@ -21,7 +21,7 @@ namespace Northwind.Controllers
         /// </summary>
         [HttpGet]
         [Route("[action]")]
-        public ProdutosDto ListarCombobox() => _produtoBll.ListarCombobox();
+        public Produtos ListarCombobox() => _produtoBll.ListarCombobox();
 
         /// <summary>
         /// Disponibilizar uma API para listagem de produtos por fornecedor ou categorias.

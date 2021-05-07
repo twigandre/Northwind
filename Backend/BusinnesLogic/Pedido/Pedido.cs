@@ -7,13 +7,13 @@ using Northwind.Database.Repository;
 
 namespace Northwind.BusinnesLogic.Pedido
 {
-    public class PedidoBll : IPedidoBll
+    public class Pedido : IPedido
     {
         IRepository<Order> _repositoryPedidos;
         IRepository<Customer> _repositoryClientes;
         IRepository<Shipper> _repositoryExpedidores;
 
-        public PedidoBll(IRepository<Order> repositoryPedidos,
+        public Pedido(IRepository<Order> repositoryPedidos,
                          IRepository<Customer> repositoryClientes,
                          IRepository<Shipper> repositoryExpedidores)
         {
@@ -22,12 +22,12 @@ namespace Northwind.BusinnesLogic.Pedido
             _repositoryExpedidores = repositoryExpedidores;
         }
 
-        public PedidosDto ListaComboBox()
+        public Pedidos ListaComboBox()
         {
             var Cliente = _repositoryClientes.Listar();
             //var Expedidores = _repositoryExpedidores.Listar();
 
-            return new PedidosDto {
+            return new Pedidos {
                 ListClientes = Cliente//,
                 //ListExpedidores = Expedidores
             };

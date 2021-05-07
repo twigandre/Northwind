@@ -65,9 +65,9 @@ namespace Northwind
             #endregion
 
             #region Dependency Injection - BusinessLogic
-            services.AddScoped<IColaboradoresBll, ColaboradoresBll>();
-            services.AddScoped<IPedidoBll, PedidoBll>();
-            services.AddScoped<IProdutoBll, ProdutoBll>();
+            services.AddScoped<IColaboradores, Colaboradores>();
+            services.AddScoped<IPedido, Pedido>();
+            services.AddScoped<IProduto, Produto>();
             #endregion
 
             services.AddControllers();            

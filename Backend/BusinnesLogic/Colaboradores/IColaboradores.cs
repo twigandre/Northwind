@@ -7,8 +7,8 @@ using Northwind.Database.Dto;
 
 namespace Northwind.BusinnesLogic.Colaboradores
 {
-    public interface IColaboradoresBll
+    public interface IColaboradores
     {
-        List<FuncionariosDto> Listar(Order pagedFilter);
+        List<Funcionarios> Listar(Order pagedFilter);
     }
 }

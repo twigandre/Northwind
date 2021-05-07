@@ -4,9 +4,9 @@ using Northwind.Database.Dto;
 
 namespace Northwind.BusinnesLogic.Pedido
 {
-    public interface IPedidoBll
+    public interface IPedido
     {
-        PedidosDto ListaComboBox();
+        Pedidos ListaComboBox();
         List<Order> ListaPedidos(Order pagedFilter);
     }
 }

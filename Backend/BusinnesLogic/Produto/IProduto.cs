@@ -4,9 +4,9 @@ using Northwind.Database.Dto;
 
 namespace Northwind.BusinnesLogic.Produto
 {
-    public interface IProdutoBll
+    public interface IProduto
     {
-        ProdutosDto ListarCombobox();
+        Produtos ListarCombobox();
         List<Product> ListarProdutos(Product pagedFilter);
     }
 }

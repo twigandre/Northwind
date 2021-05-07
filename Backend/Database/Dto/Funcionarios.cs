@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Northwind.Database.Dto
 {
-    public class FuncionariosDto
+    public class Funcionarios
     {
         public int EmployerId { get; set; }
         public string Nome { get; set; }

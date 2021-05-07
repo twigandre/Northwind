@@ -11,8 +11,8 @@ namespace Northwind.Controllers
     [ApiController]
     public class PedidoController : ControllerBase
     {
-        IPedidoBll _pedidoBll;
-        public PedidoController(IPedidoBll pedidoBll)
+        IPedido _pedidoBll;
+        public PedidoController(IPedido pedidoBll)
         {
             _pedidoBll = pedidoBll;
         }
@@ -30,7 +30,7 @@ namespace Northwind.Controllers
         /// </summary>
         [HttpGet]
         [Route("[action]")]
-        public PedidosDto ListarCombobox() => _pedidoBll.ListaComboBox();
+        public Pedidos ListarCombobox() => _pedidoBll.ListaComboBox();
     }
 }
 

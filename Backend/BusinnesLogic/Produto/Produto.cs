@@ -7,13 +7,13 @@ using System;
 
 namespace Northwind.BusinnesLogic.Produto
 {
-    public class ProdutoBll : IProdutoBll
+    public class Produto : IProduto
     {
         IRepository<Supplier> _repositoryFornecedor;
         IRepository<Product> _repositoryProdutos;
         IRepository<Category> _repositoryCategorias;
 
-        public ProdutoBll(IRepository<Supplier> repositoryFornecedor,
+        public Produto(IRepository<Supplier> repositoryFornecedor,
                           IRepository<Product> repositoryProdutos,
                           IRepository<Category> repositoryCategorias)
         {
@@ -22,9 +22,9 @@ namespace Northwind.BusinnesLogic.Produto
             _repositoryCategorias = repositoryCategorias;
         }
 
-        public ProdutosDto ListarCombobox()
+        public Produtos ListarCombobox()
         {
-            return new ProdutosDto {
+            return new Produtos {
                 ListCategorias = _repositoryCategorias.Listar(),
                 ListFornecedor = _repositoryFornecedor.Listar()
             };

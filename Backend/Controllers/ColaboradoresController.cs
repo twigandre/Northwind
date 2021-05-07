@@ -11,8 +11,8 @@ namespace Northwind.Controllers
     [ApiController]
     public class ColaboradoresController : Controller
     {
-        IColaboradoresBll _colaboradoresBll;
-        public ColaboradoresController(IColaboradoresBll colaboradoresBll)
+        IColaboradores _colaboradoresBll;
+        public ColaboradoresController(IColaboradores colaboradoresBll)
         {
             _colaboradoresBll = colaboradoresBll;
         }
@@ -22,7 +22,7 @@ namespace Northwind.Controllers
         /// </summary>
         [HttpGet]
         [Route("[action]")]
-        public List<FuncionariosDto> ListaColaboradoresPorDataPedidos([FromQuery] Order pagedFilter) => _colaboradoresBll.Listar(pagedFilter);
+        public List<Funcionarios> ListaColaboradoresPorDataPedidos([FromQuery] Order pagedFilter) => _colaboradoresBll.Listar(pagedFilter);
 
       
     }
